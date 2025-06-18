@@ -27,8 +27,8 @@ vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
 
 # 3. Create vector store index with Chroma
-index = VectorStoreIndex.from_documents(
-    documents,
+index = VectorStoreIndex.from_vector_store(
+    vector_store=vector_store,
     storage_context=storage_context,
     show_progress=True,
 )
